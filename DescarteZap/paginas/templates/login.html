@@ -33,6 +33,11 @@
           </p>
 
           <p>
+            {% for message in messages %}
+              <div class="alert alert-danger">
+                <strong>Usuario não cadastrado!</strong> {{message}}
+              </div>
+            {% endfor %}
             <button type="submit" class="btn btn-success">Entrar</button>
           </p>
 
