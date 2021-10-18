@@ -1,6 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+class CadAcesso(models.Model):
+    usuario = models.CharField(max_length=20, null=False, blank=False)
+    senha = models.CharField(max_length=20, null=False, blank=False)
+    confsenha = models.CharField(max_length=20, null=False, blank=False)
+
+
 class CadastroDoadores(models.Model):
     nome = models.CharField(max_length=20, null=False, blank=False)
     sobrenome = models.CharField(max_length=20, null=False, blank=False)
