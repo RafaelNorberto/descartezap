@@ -2,7 +2,6 @@ from django.db import models
 
 
 class CadastroDoadores(models.Model):
-    cpf = models.CharField(max_length=11, null=False, blank=False)
     nome = models.CharField(max_length=20, null=False, blank=False)
     sobrenome = models.CharField(max_length=20, null=False, blank=False)
     dataNascimento = models.DateField(max_length=20, null=False, blank=False)
@@ -21,10 +20,9 @@ class CadastroDoadores(models.Model):
 
 
 class QtDoacao(models.Model):
+    d_celular = models.ForeignKey(CadastroDoadores, on_delete=models.CASCADE)
     quantidade = models.FloatField(verbose_name='Quantidade (l)')
     descricao = models.CharField(max_length=300, null=False, blank=False, verbose_name="Descrição")
-    d_cpf = models.ForeignKey(CadastroDoadores, on_delete=models.CASCADE)
-
 
     def __str__(self):
-        return "{} ({})".format(self.quantidade, self.d_cpf.bairro)
+        return "{} ({})".format(self.d_celular, self.d_celular.quantidade)

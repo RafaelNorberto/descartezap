@@ -1,0 +1,108 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    {% block titulo %}
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>Modelo</title>
+    {% endblock %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand bg-white" href="{% url 'index' %}" >
+      <img src="{% static 'img/img_main.jpg' %}" class="rounded" alt="Logo" style="width:100px;">
+  </a>
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link"  href="{% url 'sobre' %}">Sobre</a>
+    </li>
+
+
+    <!-- Dropdown -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="nav-bardrop" data-toggle="dropdown">
+        Cadastros
+      </a>
+      <div class="dropdown-menu">
+          {% block menu_drop %}
+        <a class="dropdown-item" href="{% url 'listar-campos' %}"> CAMPOS </a>
+        <a class="dropdown-item" href="{% url 'listar-atividades' %}"> ATIVIDADES </a>
+        <a class="dropdown-item" href="{% url 'listar-status' %}"> status </a>
+        <a class="dropdown-item" href="{% url 'listar-classes' %}"> classes </a>
+        <a class="dropdown-item" href="{% url 'listar-campus' %}"> campus </a>
+          {% endblock %}
+      </div>
+    </li>
+
+    <li class="nav-item dropdown nav-item-right">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+          {{ request.user }}
+      </a>
+      <div class="dropdown-menu">
+          {% block menu_drop_login %}
+        <a class="dropdown-item" href="{% url 'login' %}"> Login </a>
+              {% if request.user.is_authenticated %}
+         <a class="dropdown-item" href="{% url 'logout' %}"> Logout  </a>
+                  {% else %}
+                   <a class="dropdown-item" href="#"> VC nao esta logado  </a>
+              {% endif %}
+          {% endblock %}
+      </div>
+    </li>
+  </ul>
+</nav>
+
+<div class="container" style="margin-top:30px">
+  <div class="row">
+    <div class="">
+        {% block conteudo1 %}
+      <h2>About Me</h2>
+      <h5>Photo of me:</h5>
+      <div class="fakeimg">Fake Image</div>
+      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+        {% endblock %}
+    {% block conteudo2 %}
+      <h3>Some Links</h3>
+      <p>Lorem ipsum dolor sit ame.</p>
+      <ul class="nav nav-pills flex-column">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Active</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+      </ul>
+    {% endblock %}
+     </div>
+  </div>
+</div>
+
+{% block footer %}
+<div class="jumbotron text-center" style="margin-bottom:0">
+  <p>Footer</p>
+</div>
+{% endblock %}
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,1 +1,23 @@
-vazio
+{% extends 'modelo.html' %}
+
+{% load static %}
+
+
+{% block titulo %}
+    <title>cadastro</title>
+{% endblock %}
+
+{% block conteudo1 %}
+    <h3>Estamos no Formulario</h3>
+    <hr>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+
+
+        <button type="submit" class="btn btn-primary"> Cadastrar </button>
+
+    </form>
+{% endblock %}
+{% block conteudo2 %}
+{% endblock %}

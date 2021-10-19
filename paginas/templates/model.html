@@ -1,106 +1,85 @@
 {% load static %}
 
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-     <meta charset="utf-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    {% block titulo%}
-    <title> Modelo </title >
-    {% endblock %}
-
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"> </script >
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"> </script>
-
+<title>DESCARTEZap</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
 </head>
 <body>
-
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <!-Marca->
-  <a class="navbar-marca bg-branco" href=" {% url 'índice' %}">
-      <img src="{% static 'img/logo.png'%}" class="arredondado" alt="Logo" style="width:100px;">
-  </a>
-  <!-Links->
-  <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="nav-link" href="{% url 'sobre' %}"> Sobre </a>
-    </li>
-
-
-    <!-Lista suspensa->
-    <li class="nav-item dropdown">
-      <a class="nav-link suspensa-toggle" href="#" id="navbardrop" dados-toggle="suspensa">
-        Cadastros
-      </a>
-      <div class="dropdown-menu">
-          {% block menu_drop%}
-        <A class="suspensa item" href="{% url 'listar-Campos' %}">CAMPO</a>
-        <A class="suspensa item" href="{% url 'listar-Atividades' %}"> Atividade </a>
-        <A class="suspensa item" href="{% url 'listar-status' %}"> estado </a>
-        <A class="suspensa item" href="{% url 'listar-classes' %}"> aulas </a>
-        <A class="suspensa item" href="{% url 'listar-campus' %}"> campus </a>
-          {% endblock%}
+<div class="main">
+  <div class="header">
+    <div class="header_resize">
+      <div class="logo">
+        <h1><a href="index.html"><span>DESCARTE</span>Zap<br />
+          <small>SEU ÓLEO DE COZINHA DESCARTADO CORRETAMENTE</small></a></h1>
       </div>
-    </li>
+      <div class="clr"></div>
+      <div class="menu">
 
-    <li class="nav-item dropdown nav-item-right">
-      <A class="nav-link suspensa-toggle" href="#" id="navbar drop" dados-toggle="suspensa" >
-        {{request.user}}
-      </a>
-      <div class="dropdown-menu">
-          {% block menu_drop_login%}
-        <A class="suspensa item" href="{% url 'login' %}"> Acesso </a>
-              {% if request.user.is_authenticated%}
-        <A class="suspensa item" href=" {% url 'Sair' %}"> Sair </a>
+          <nav class="navbar navbar-expand-lg navbar-dark bg-ifpr font-115">
 
-                   <A class="suspensa item" href="#"> VC nao ESTA logado </a>
-              {% endif %}
-          {% endblock%}
+	        <div class="container">
+                <a class="navbar-brand" href="Inicio">
+                    <img src="{% static 'img/img_3.jpg' %} height="40" alt="">
+                    </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'inicio' %}">
+                                <i class="fa fa-home" aria-hidden="true"></i>
+                                Inicio</a>
+                            </li>
+
+                        <nav>
+
+        <ul>
+          <li><a href="index.html" class="active"><span>NOSSA EMPRESA</span></a></li>
+          <li><a href="#"><span>SERVIÇOS</span></a></li>
+          <li><a href="#"><span>NATUREZA</span></a></li>
+          <li><a href="http://127.0.0.1:8000/login/" class="active"><span>CADASTRO</span></a></li>
+        </ul>
       </div>
-    </li>
-  </ul>
-</nav>
-
-<div  class="container" style="margin-top: 30px">
-  <div  class="row" >
-    <div class = "">
-        {% block conteudo1%}
-      <h2> Sobre mim </h2 >
-      <h5> Foto minha: </h5 >
-      <div  class="fakeimg"> Imagem Falsa </div>
-      <p> Algum texto sobre mim em culpa qui officia deserunt mollit anim  </p >
-        {% endblock%}
-    {% block conteudo2 %}
-      <h3> Alguns links </h3>
-      <p> Lorem ipsum dolor sit ame. </p>
-      <ul class="nav nav-pills flex-column">
-        <li class="nav-item">
-          <A class="nav-link ativo" href="#"> Ativo </a>
-        </li>
-        <li class="nav-item">
-          <A class="nav-link" href="#"> link </a>
-        </li>
-        <li class="nav-item">
-          <A class="nav-link" href="#"> link </a>
-        </li>
-        <li class="nav-item">
-          <A class="nav-link desativado" href="#"> Desativado </a>
-        </li>
-      </ul>
-    {% endblock%}
-     </div >
-  </div >
-</div >
-
-{% block footer%}
-<div class="jumbotron text-center" style="margin-bottom: 0 ">
-  <p> Rodapé </p>
+      <div class="search">
+        <form id="form1" name="form1" method="post" action="">
+          <label><span>
+            <input name="q" type="text" class="keywords" id="textfield" maxlength="50" value="Pesquisa..." />
+             <a href="/logout/">Sair</a>
+          </span>
+            <input name="b" type="image" src="{% static 'img/search.gif' %}" class="button" />
+          </label>
+        </form>
+      </div>
+      <div class="clr"></div>
+    </div>
+    <div class="body">
+    <div class="body_resize">
+     <div class="right">
+       <div class="clr"></div>
+    </div>
+  </div>
+      <ul>
+          <li><a href="#">• COLOQUEM MAIS COISA</a></li>
+          <li><a href="#">• COLOQUEM MAIS COISA </a></li>
+          <li><a href="#">• COLOQUEM MAIS COISA</a></li>
+        </ul>
+      </div>
+      <div class="blok">
+         </div>
+  <div class="footer">
+    <div class="footer_resize">
+      <p class="lf">UNIVESP &copy; <a href="#">REGISTRO DOS ALUNOS UNIVESP</a>. </p>
+      <p class="rf">(DESENVOLVIDO PELOS MELHORES) <a target="_blank" href="https://univesp.br/"> UNIVESP A MELHOR UNIVERSIDADE QUE EXISTE--2021--</a></p>
+      <div class="clr"></div>
+    </div>
+    <div class="clr"></div>
+  </div>
 </div>
-{% endblock%}
-
 </body>
 </html>

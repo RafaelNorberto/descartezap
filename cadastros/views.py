@@ -8,11 +8,11 @@ class CadastroDoadoresCreate(CreateView):
     fields = ['cpf', 'nome', 'sobrenome', 'dataNascimento', 'endereco', 'numero', 'bairro', 'cidade', 'telefonefixo',
               'celular', 'Intencao']
     template_name = 'formcaddoadores.html'
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('modelo')
 
 
 class QtDoacaoCreate(CreateView):
     model = QtDoacao
     fields = ['quantidade', 'descricao', 'd_cpf']
     template_name = 'formcaddoacao.html'
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('modelo')
