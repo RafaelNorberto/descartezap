@@ -8,4 +8,4 @@ class IndexView(TemplateView):
 
 # definição da pagina inicial
 class SobreView(TemplateView):
-    template_name = "sobre.html"
+    template_name = "paginas/sobre.html"

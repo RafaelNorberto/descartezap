@@ -17,27 +17,46 @@
           <small>SEU ÓLEO DE COZINHA DESCARTADO CORRETAMENTE</small></a></h1>
       </div>
       <div class="clr"></div>
+
+        {% block menu %}
       <div class="menu">
 
           <nav class="navbar navbar-expand-lg navbar-dark bg-ifpr font-115">
 
 	        <div class="container">
-                <a class="navbar-brand" href="Inicio">
-                    <img src="{% static 'img/img_3.jpg' %} height="40" alt="">
+                <a class="navbar-brand" href="#">
+                    <img src="{% static 'img/imagen03.jpg' %}" height="100" alt="">
                     </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                    </button>
+                        <span class="navbar-toggler-icon"></span>
+                </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav mr-auto">
+
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'inicio' %}">
                                 <i class="fa fa-home" aria-hidden="true"></i>
-                                Inicio</a>
-                            </li>
+                                INICIO</a>
+                        </li>
 
-                        <nav>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-black" href="#" id="navbarDropdownMenuLink"
+                               role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-plus-square" aria-hidden="true"></i>
+                                CADASTROS
+                            </a>
+                            <div class="=dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fa fa-building-o" aria-hidden="true"><i/>
+                                    Doador<a/>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fa fa-user-o" aria-hidden="true"><i/>
+                                    Doação<a/>
+
+                            </div>
+                        </li>
+    {% endblock %}
 
         <ul>
           <li><a href="index.html" class="active"><span>NOSSA EMPRESA</span></a></li>

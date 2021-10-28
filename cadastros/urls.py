@@ -5,7 +5,7 @@ from .views import CadastroDoadoresCreate, QtDoacaoCreate
 urlpatterns = [
     # formato para definir url
 
-    path('cadastrar/cadastrodoares/', CadastroDoadoresCreate.as_view(), name='cadastrar-doador'),
+    path('cadastrar/cadastrodoadores/', CadastroDoadoresCreate.as_view(), name='cadastrar-doador'),
     path('cadastrar/qtdoacao/', QtDoacaoCreate.as_view(), name='cadastrar-doacao'),
 
 ]
