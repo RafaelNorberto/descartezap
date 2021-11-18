@@ -14,7 +14,7 @@ app_name = "cadastros"
 urlpatterns = [
 
     path("", FormCadastro.as_view(), name='cadastrar'),
-    # path("DescarteZap_Beta", HomeView.as_view(), name='home'),
+    # path("Descartezap", HomeView.as_view(), name='home'),
     path('cadastros/Doadores/', DoadoresCreate.as_view(), name="cadastrar-doadores"),
     path('atualizar-dados/', DoadorUpdate.as_view(), name="atualizar-dados"),
     path('cadastros/doacao/', DoacaoCreate.as_view(), name="cadastrar-doacao"),
